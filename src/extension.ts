@@ -13,8 +13,14 @@ export function activate(context: vscode.ExtensionContext) {
 	// This line of code will only be executed once when your extension is activated
 	console.log('Congratulations, your extension "newSDCFolder" is now active!');
 
-	const disposable = vscode.commands.registerCommand('newSDCFolder.create', async () => { 
-		const uri = vscode.workspace?.workspaceFolders?.[0].uri.fsPath;
+	const disposable = vscode.commands.registerCommand('newSDCFolder.create', async (contextSelection: vscode.Uri, allSelections: vscode.Uri[]) => { 
+		let uri;
+    
+    if (contextSelection) {
+      uri = await contextSelection.fsPath;
+    } else {
+      uri = await vscode.workspace?.workspaceFolders?.[0].uri.fsPath;
+    }
 
 		if ( !uri ) {
 			return;
