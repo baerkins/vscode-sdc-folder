@@ -2,10 +2,11 @@
   "name": "new-sdc-folder",
   "displayName": "New SDC Folder",
   "description": "Create a new SDC folder with a component.yml, css, js, pcss, sass, scss, and stories.js files.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "repository": "github:baerkins/vscode-sdc-folder"
   },
+  "publisher": "Baerkins",
   "keywords": [
 		"sdc",
     "drupal",

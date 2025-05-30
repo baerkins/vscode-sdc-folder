@@ -16,7 +16,7 @@ Notes:
 
 Configure file creation in settings:
 
-![configuration options](https://github.com/baerkins/vscode-sdc-folder/blob/main/img/new-sdc-folder-options.png "Configuration")
+![configuration options](https://raw.githubusercontent.com/baerkins/vscode-sdc-folder/refs/heads/main/img/new-sdc-folder-options.png "Configuration")
 
 
 ### Asset Subdirectory
