@@ -40,6 +40,10 @@ Example output with a component named "example" and the "Asset Subdirectory" opt
 └── example.js
 ```
 
+### Add Attributes To Component YML
+
+Check the "Add Attributes To Component YML" option to include 'attributes' in the component.yml 'properties' by default.
+
 ### File Options
 
 | Option | Type | Description |

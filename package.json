@@ -1,8 +1,18 @@
 {
   "name": "new-sdc-folder",
   "displayName": "New SDC Folder",
-  "description": "",
+  "description": "Create a new SDC folder with a component.yml, css, js, pcss, sass, scss, and stories.js files.",
   "version": "0.0.1",
+  "repository": {
+    "repository": "github:baerkins/vscode-sdc-folder"
+  },
+  "keywords": [
+		"sdc",
+    "drupal",
+    "single directory components",
+    "Single Directory Components",
+		"create file"
+	],
   "engines": {
     "vscode": "^1.91.0"
   },
@@ -101,7 +111,7 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.100.0",
+    "@types/vscode": "^1.91.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
     "@typescript-eslint/eslint-plugin": "^8.31.1",
