@@ -102,7 +102,7 @@ export function activate(context: vscode.ExtensionContext) {
 
                 if (newPath.includes(parentBase)) {
                   const parentBaseTitle = newPath.slice(newPath.indexOf(parentBase) + parentBase.length);
-                  const names           = parentBaseTitle.split('/').filter(n => n && n != '');
+                  const names           = parentBaseTitle.split('/').filter(n => n && n !== '');
                   componentTitle        = names.map(n => fileNameSpacedToUppercase(n)).join('/');
                 }
               }

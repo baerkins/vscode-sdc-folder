@@ -15,7 +15,7 @@
     "configuration": {
       "id": "newSDCFolder",
       "type": "object",
-      "title": "New SDC Folder Configuration",
+      "title": "New SDC Folder",
       "properties": {
         "newSDCFolder.assetSubdirectory": {
           "type": "string",
