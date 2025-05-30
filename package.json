@@ -1,0 +1,114 @@
+{
+  "name": "new-sdc-folder",
+  "displayName": "New SDC Folder",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.91.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "id": "newSDCFolder",
+      "type": "object",
+      "title": "New SDC Folder Configuration",
+      "properties": {
+        "newSDCFolder.assetSubdirectory": {
+          "type": "string",
+          "default": "",
+          "order": 1,
+          "description": "Name of folder to add css and js files to. If empty, css and js files will be added to the top level of the folder. Useful if you're transforming css and js."
+        },
+        "newSDCFolder.addCssFile": {
+					"type": "boolean",
+					"default": true,
+          "order": 2,
+					"description": "Add css file"
+				},
+        "newSDCFolder.addJsFile": {
+					"type": "boolean",
+					"default": true,
+          "order": 3,
+					"description": "Add js file"
+				},
+        "newSDCFolder.addPcssFile": {
+					"type": "boolean",
+					"default": false,
+          "order": 4,
+					"description": "Add pcss file"
+				},
+        "newSDCFolder.addSassFile": {
+					"type": "boolean",
+					"default": false,
+          "order": 4,
+					"description": "Add sass file"
+				},
+        "newSDCFolder.addScssFile": {
+					"type": "boolean",
+					"default": false,
+          "order": 4,
+					"description": "Add scss file"
+				},
+        "newSDCFolder.addAttributesToComponentYML": {
+					"type": "boolean",
+					"default": true,
+          "order": 5,
+					"description": "Include `attributes` by default in component.yml file"
+				},
+        "newSDCFolder.addStoriesJS": {
+					"type": "boolean",
+					"default": false,
+          "order": 6,
+					"description": "Add .stories.js file"
+				},
+        "newSDCFolder.storybookComponentImportSuffix": {
+					"type": "string",
+					"default": "Template",
+          "order": 7,
+					"description": "Suffix for storybook import name"
+				},
+				"newSDCFolder.storybookComponentDefaultExportName": {
+					"type": "string",
+					"default": "",
+          "order": 8,
+					"description": "Default export name if folders are preferred. If empty, component name will be used as the export."
+				}
+      }
+    },
+    "commands": [{
+      "command": "newSDCFolder.create",
+      "title": "Create New SDC Folder"
+    }],
+    "menus": {
+			"explorer/context": [
+				{
+					"command": "newSDCFolder.create",
+					"group": "1_modification"
+				}
+			]
+		}
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.100.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "eslint": "^9.25.1",
+    "typescript": "^5.8.3",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
