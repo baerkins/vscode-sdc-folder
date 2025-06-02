@@ -1,7 +1,7 @@
 export function defaultComponentYml(componentTitle: string, incAttributes: boolean = true): string {
 
   return `name: ${componentTitle}
-description: 
+description: 'Description of the component'
 props:
   type: object
   properties:`;
