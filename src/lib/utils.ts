@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/style/useTemplate: removing file soon */
 export function ucFirst(str: string, cleanString = false, ccToWords = false): string {
   let text = str;
 
@@ -26,8 +27,8 @@ export function fileNameToCamelCase(str: string): string {
   let text = str;
   text = text.replace(/^__/g, '_');
   text = text.replace(/^--/g, '-');
-  text = text.replace(/-([a-z])/g, function (g) { return g[1].toUpperCase(); });
-  text = text.replace(/_([a-z])/g, function (g) { return g[1].toUpperCase(); });
+  text = text.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+  text = text.replace(/_([a-z])/g, (g) => g[1].toUpperCase());
   return text.trim();
 }
 
@@ -36,7 +37,7 @@ export function fileNameSpacedToUppercase(str: string): string {
   text = text.replace(/([A-Z])/g, (match) => ` ${match}`).replace(/^./, (match) => match.toUpperCase());
   text = text.replace(/^__/g, '_');
   text = text.replace(/^--/g, '-');
-  text = text.replace(/-([a-z])/g, function (g) { return ' ' + g[1].toUpperCase(); });
-  text = text.replace(/_([a-z])/g, function (g) { return ' ' + g[1].toUpperCase(); });
+  text = text.replace(/-([a-z])/g, (g) => ' ' + g[1].toUpperCase());
+  text = text.replace(/_([a-z])/g, (g) => ' ' + g[1].toUpperCase());
   return text.trim();
 }

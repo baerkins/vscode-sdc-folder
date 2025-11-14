@@ -70,23 +70,56 @@
           "order": 5,
 					"description": "Include `attributes` by default in component.yml file"
 				},
-        "newSDCFolder.addStoriesJS": {
+        "newSDCFolder.storybook.addStoriesJS": {
 					"type": "boolean",
 					"default": false,
           "order": 6,
 					"description": "Add .stories.js file"
 				},
-        "newSDCFolder.storybookComponentImportSuffix": {
+        "newSDCFolder.storybook.addStoriesTS": {
+					"type": "boolean",
+					"default": false,
+          "order": 6,
+					"description": "Add .stories.ts file"
+				},
+        "newSDCFolder.storybook.importCSS": {
+					"type": "boolean",
+					"default": false,
+          "order": 6,
+					"description": "import css file in stories"
+				},
+        "newSDCFolder.storybook.importJS": {
+					"type": "boolean",
+					"default": false,
+          "order": 6,
+          "description": "import js file in stories"
+				},
+        "newSDCFolder.storybook.ComponentImportSuffix": {
 					"type": "string",
 					"default": "Template",
           "order": 7,
-					"description": "Suffix for storybook import name"
+					"description": "Suffix for storybook import name to prevent naming conflicts (e.g., 'Template' results in 'ButtonTemplate' import)."
 				},
-				"newSDCFolder.storybookComponentDefaultExportName": {
+        "newSDCFolder.storybook.OrganizeComponents": {
+					"type": "boolean",
+					"default": false,
+          "order": 6,
+					"description": "If checked, Story titles will automatically include their parent folder names as categories."
+				},
+				"newSDCFolder.storybook.SdcComponentsCategoryTitle": {
+					"type": "string",
+					"default": "SDC Components",
+					"description": "Name of the SDC category in Storybook."
+				},
+				"newSDCFolder.storybook.AdditionalParentCategoryDirectoryNames": {
 					"type": "string",
 					"default": "",
-          "order": 8,
-					"description": "Default export name if folders are preferred. If empty, component name will be used as the export."
+					"description": "Comma seperated list of parent folders that create category groups in the Storybook sidebar. Will autogenerate a title in stories file based on folder organization for folders created within these directory. SDC components will always be categorized under the 'Components' Sdc Components Category Title."
+				},
+        "newSDCFolder.storybook.ImportEngine": {
+					"type": "string",
+					"default": "@storybook/html-vite",
+					"description": "If generating typescript stories, this value will be used to generate the import statement for Storybook's Meta and StoryObj types."
 				}
       }
     },
