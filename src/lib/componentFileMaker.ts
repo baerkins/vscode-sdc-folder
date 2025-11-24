@@ -6,7 +6,7 @@ import { toTitleCase } from './stringFormatting';
 import { createFile } from './createFile';
 import { attributeComponentYml, defaultComponentYml } from './defaultComponentYML';
 import { storybookFileMaker } from './storybookFileMaker';
-import { log } from './logger';
+// import { log } from './logger';
 
 // biome-ignore lint/suspicious/noExplicitAny: Type to come
 export function componentFileMaker(targetPath: string, dirName: string, settings: any) {
@@ -86,7 +86,7 @@ export function componentFileMaker(targetPath: string, dirName: string, settings
         }
       });
 
-      log(`Component '${dirName}' created successfully at ${componentPath} with settings: ${JSON.stringify(settings)}`);
+      // log(`Component '${dirName}' created successfully at ${componentPath} with settings: ${JSON.stringify(settings)}`);
 
 
       if ( settings.storybook.addStoriesJS || settings.storybook.addStoriesTS ) {

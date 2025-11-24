@@ -72,15 +72,21 @@ function buildComponentTitle(filename: string, path: string, settings: any) {
     baseDirectories.push(`${themeName}/components`);
     if ( path.includes(`${themeName}/components`)) {
       isSDCComponent = true;
-      titleArray.push(settings.storybook.SdcComponentsCategoryTitle || 'SDC Components');
     }
   } else if ( path.includes('/modules/custom') ) {
     const moduleName = getDirAfter(path, '/modules/custom');
     baseDirectories.push(`${moduleName}/components`);
     if ( path.includes(`${moduleName}/components`)) {
       isSDCComponent = true;
-      titleArray.push(settings.storybook.SdcComponentsCategoryTitle || 'SDC Components');
     }
+  } else if ( path.includes('components/') ) {
+    isSDCComponent = true;
+    const componentDirPath = path.substring(0, path.indexOf("components/"));
+    baseDirectories.push(`${componentDirPath}components`);
+  }
+
+  if ( isSDCComponent ) {
+    titleArray.push(settings.storybook.SdcComponentsCategoryTitle || 'SDC Components');
   }
 
   
@@ -88,6 +94,7 @@ function buildComponentTitle(filename: string, path: string, settings: any) {
 
     // Check if any of the base directories exist in the path
     const foundBaseDir = baseDirectories.find((dir: string) => path.includes(dir));
+
     if ( foundBaseDir !== undefined ) {
 
       if ( !isSDCComponent ) {
@@ -98,43 +105,12 @@ function buildComponentTitle(filename: string, path: string, settings: any) {
       if ( trimmedPath ) {
         trimmedPath = removeLastInstance(trimmedPath, filename);
         const pathParts = trimmedPath.split(/[/\\]/).filter(part => part && part !== '');
-        log('Found base directory for Storybook Title: ' + foundBaseDir + ' with path ' + path + ' with relative path: ' + trimmedPath + ' resulting in parts: ' + JSON.stringify(pathParts));
         for ( const part of pathParts ) {
           titleArray.push(toTitleCase(part));
         }
       }
     }
   }
-
-
-
-
-  // log('Building Storybook Title for: ' + filename + ' at path: ' + path);
-  // log(settings);
-
-  // if ( settings.storybook.OrganizeComponents ) {
-  //   const pathParts = path.split(/[/\\]/).filter(part => part && part !== '');
-
-  //   if ( pathParts.includes('components') ) {
-  //     titleArray.push(settings.storybook.SdcComponentsCategoryTitle || 'SDC Components');
-  //   }
-    
-  //   // Determine the base directory for titles
-  //   // let baseDirIndex = 0;
-  //   // if ( settings.storybook.useParentDirectoryForStorybookTitles && settings.storybook.useParentDirectoryName ) {
-  //   //   const baseDir = settings.storybook.useParentDirectoryName;
-  //   //   const foundIndex = pathParts.indexOf(baseDir);
-  //   //   if ( foundIndex !== -1 ) {
-  //   //     baseDirIndex = foundIndex + 1;
-  //   //   }
-  //   // }
-
-  //   // // Add relevant path parts to title array
-  //   // for ( let i = baseDirIndex; i < pathParts.length; i++ ) {
-  //   //   titleArray.push(toTitleCase(pathParts[i]));
-  //   // }
-  // }
-
 
   // Add component title
   titleArray.push(toTitleCase(filename));
@@ -148,7 +124,9 @@ function buildComponentTitle(filename: string, path: string, settings: any) {
 
 function removeLastInstance(input: string, directory: string): string {
   const lastIndex = input.lastIndexOf(directory);
-  if (lastIndex === -1) return input;
+  if (lastIndex === -1) {
+    return input;
+  }
 
   return (
     input.slice(0, lastIndex) +
