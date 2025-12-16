@@ -100,8 +100,8 @@ function buildComponentTitle(filename: string, path: string, settings: any) {
       if ( !isSDCComponent ) {
         titleArray.push(toTitleCase(foundBaseDir.split('/')[0]));
       }
+      let trimmedPath = path.split(foundBaseDir)[1];
 
-      let trimmedPath = getDirAfter(path, foundBaseDir);
       if ( trimmedPath ) {
         trimmedPath = removeLastInstance(trimmedPath, filename);
         const pathParts = trimmedPath.split(/[/\\]/).filter(part => part && part !== '');
